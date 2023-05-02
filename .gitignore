@@ -1,0 +1,4 @@
+secrets.*
+**/*.code-workspace
+**/*.vscode
+**/.mvn
