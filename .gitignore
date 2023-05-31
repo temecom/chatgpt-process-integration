@@ -2,3 +2,8 @@ secrets.*
 **/*.code-workspace
 **/*.vscode
 **/.mvn
+**/*.log
+**/*.gz
+**/data
+**/chats
+**/*secrets.*
