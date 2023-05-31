@@ -1,0 +1,34 @@
+@startuml StartCodingCollaboration
+
+participant Chris as "Chris (Software Architect)"
+participant Philip as "Philip (Web UI Developer)"
+participant Ashley as "Ashley (Java Service Developer)"
+participant Scott as "Scott (DevOps Engineer)"
+participant Dan as "Dan (Database Administrator)"
+
+Chris -> Philip: Provide UI requirements and guidelines
+Chris -> Ashley: Define service APIs and architecture
+Chris -> Scott: Discuss deployment strategy and requirements
+Chris -> Dan: Collaborate on database design and schema
+
+Philip -> Chris: Seek clarification on UI requirements
+Philip -> Ashley: Integrate UI components with backend services
+Philip -> Scott: Request deployment configuration and assistance
+Philip -> Dan: Discuss UI data requirements and presentation
+
+Ashley -> Chris: Seek guidance on service architecture
+Ashley -> Philip: Discuss frontend-backend integration
+Ashley -> Scott: Collaborate on deployment setup and dependencies
+Ashley -> Dan: Coordinate database access and entity mappings
+
+Scott -> Chris: Receive deployment strategy and requirements
+Scott -> Philip: Collaborate on environment setup and configuration
+Scott -> Ashley: Discuss deployment dependencies and requirements
+Scott -> Dan: Coordinate database deployment and connectivity
+
+Dan -> Chris: Discuss database design and entity relationships
+Dan -> Philip: Coordinate data storage and retrieval requirements
+Dan -> Ashley: Collaborate on database integration with services
+Dan -> Scott: Coordinate database deployment and access configuration
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml BrainstormUMLModel
+
+skinparam groupInheritance 2
+package com.brainstorm {
+  
+  abstract class BaseEntity {
+    +id: UUID
+    +createdAt: DateTime
+    +updatedAt: DateTime
+  }
+  
+  class User {
+    +firstName: String
+    +lastName: String
+    +email: String
+    +password: String
+  }
+  
+  class Vote {
+    +user: User
+  }
+  
+  class Idea {
+    +title: String
+    +description: String
+    +creator: User
+    +votes: List<Vote>
+  }
+  
+  class VotingSession {
+    +name: String
+    + description: String
+    +ideas: List<Idea>
+    +startTime: DateTime
+    +endTime: DateTime
+  }
+  
+  VotingSession o--> "1..*" Idea
+  Idea "1"*--> "0..*" Vote
+  Vote "1" o--> "1" User
+  
+  BaseEntity <|-- User
+  BaseEntity <|-- Vote
+  BaseEntity <|-- Idea
+  BaseEntity <|-- VotingSession
+}
+
+@enduml

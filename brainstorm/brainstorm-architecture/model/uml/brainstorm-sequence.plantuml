@@ -1,0 +1,43 @@
+@startuml
+
+actor ClientApp as "Client Application"
+participant "Brainstorm API" as API
+participant "Brainstorm Database" as Database
+
+ClientApp -> API: Request to create a new voting session
+activate API
+API -> Database: Create new voting session record
+activate Database
+Database --> API: Confirmation of successful record creation
+deactivate Database
+API --> ClientApp: Response with the newly created voting session ID
+deactivate API
+
+ClientApp -> API: Request to retrieve ideas for a voting session
+activate API
+API -> Database: Retrieve ideas for the specified voting session
+activate Database
+Database --> API: List of ideas for the voting session
+deactivate Database
+API --> ClientApp: Response with the list of ideas
+deactivate API
+
+ClientApp -> API: Request to vote for an idea
+activate API
+API -> Database: Register the user's vote for the specified idea
+activate Database
+Database --> API: Confirmation of vote registration
+deactivate Database
+API --> ClientApp: Response confirming successful vote registration
+deactivate API
+
+ClientApp -> API: Request to retrieve vote count for an idea
+activate API
+API -> Database: Retrieve the vote count for the specified idea
+activate Database
+Database --> API: Vote count for the idea
+deactivate Database
+API --> ClientApp: Response with the vote count
+deactivate API
+
+@enduml
