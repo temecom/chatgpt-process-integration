@@ -1,0 +1,30 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor Chris as "Chris (Software Architect)"
+actor Philip as "Philip (Web UI Developer)"
+actor Ashley as "Ashley (Java Service Developer)"
+actor Scott as "Scott (DevOps Engineer)"
+actor Dan as "Dan (Database Administrator)"
+
+rectangle Team {
+    Chris --> (Create Stories)
+    (Create Stories) --> Philip
+    (Create Stories) --> Ashley
+    (Create Stories) --> Scott
+    (Create Stories) --> Dan
+
+    Philip --> (Web UI Development)
+    Ashley --> (Java Service Development)
+    Scott --> (DevOps Setup)
+    Dan --> (Database Design and Setup)
+
+    (Web UI Development) --> Chris
+    (Java Service Development) --> Chris
+    (DevOps Setup) --> Chris
+    (Database Design and Setup) --> Chris
+}
+
+@enduml
