@@ -1,12 +1,13 @@
-version: '3'
+version: '3.8'
 services:
   database:
-    image: brainstorm-db
+    image: temecom/brainstorm-db:latest
+    env_file:
+      - secrets.env
     ports:
       - 5432:5432
-    env_file:
-      - ./secrets.env
     volumes:
-      - brainstorm-db-data:/var/lib/postgresql/data
+      - brainstorm-data:/var/lib/postgresql/data
+
 volumes:
-  brainstorm-db-data:
+  brainstorm-data:
