@@ -1,0 +1,40 @@
+@startuml
+scale 1920x1080
+left to right direction
+
+!define POSTGRESDB [Database]
+!define JAVASERVICE [Java Service]
+!define WEBSERVICE [Web Service]
+!define DOCKERENGINE [Docker Engine]
+!define CLOUDPLATFORM [Cloud Platform]
+
+!define USER [User]
+!define LAPTOP [Laptop]
+!define INTERNET [Internet]
+
+
+node "User" as user {
+  [Web Browser]
+}
+
+cloud "Internet" as internet {
+  [Web Browser] -- [Brainstorm Web UI] : HTTP/HTTPS
+}
+
+node "Application Server" as server {
+  [Brainstorm Web UI] -- [Brainstorm Java Service] : REST API
+}
+
+node "Database Server" as database {
+  [Brainstorm Java Service] -- [Brainstorm Database] : JDBC
+}
+
+cloud "Docker Engine" as docker {
+  [Brainstorm Database] -- [Brainstorm Database Container] : JDBC
+}
+
+[Brainstorm Web UI] -left..> [Brainstorm Java Service] : REST API
+[Brainstorm Java Service] -down..> [Brainstorm Database] : JDBC
+[Brainstorm Database] -left..> [Brainstorm Database Container] : JDBC
+
+@enduml
