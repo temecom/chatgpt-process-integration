@@ -1,18 +1,24 @@
 spring:
   config:
     name: application
-    activate: always
-  profiles:
-    active: default,secrets
+    activate:
+      on-profile:
+        - default
 ---
+server:
+  port: 8510
 spring:
-  profiles: default
   datasource:
     url: jdbc:postgresql://localhost:5432/brainstorm
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: update
-      properties:
+      ddl-auto: none
+      naming:
+        physical-strategy: com.brainstorm.config.BrainStormNamingStrategy
+    properties:
+      hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+

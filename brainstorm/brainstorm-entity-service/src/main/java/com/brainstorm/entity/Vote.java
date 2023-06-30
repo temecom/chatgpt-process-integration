@@ -1,19 +1,20 @@
 package com.brainstorm.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
-public class Vote {
-    @Id
-    @GeneratedValue
-    private UUID id;
-
+public class Vote extends BaseEntity {
     @OneToOne
     private User user;
+
+    @ManyToOne
+    private Idea idea; 
 }
+
