@@ -40,8 +40,7 @@ public class UserController {
         if (!userRepository.existsById(id)) {
             throw new NotFoundException("User not found");
         }
-        user.setId(id);
-        return userRepository.save(user);
+        return userRepository.save(user); 
     }
 
     @DeleteMapping("/{id}")
